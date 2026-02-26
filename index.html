@@ -29,15 +29,23 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .hero h1 span{color:#60A5FA}
 .hero p{color:#60A5FA;font-size:1.15rem;font-weight:600;line-height:1.6;margin-bottom:2.5rem}
 .home-btns{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
-.home-btn{display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:2rem 2.5rem;border-radius:16px;border:2px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;max-width:320px;width:100%}
+.home-btn{display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:2rem 2.5rem;border-radius:16px;border:2px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;text-decoration:none;max-width:320px;width:100%;animation:btnPulse 2.5s ease-in-out infinite}
+@keyframes btnPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.15)}50%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
 .home-btn-a{background:url("assets/cosplay-1.jpg") center/cover no-repeat;border-color:#60A5FA;color:#fff;position:relative;overflow:hidden}
 .home-btn-b{background:url("assets/garaj-1.png") center/cover no-repeat;border-color:#86efac;color:#fff;position:relative;overflow:hidden}
-.home-btn:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4)}.home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.20);border-radius:14px;z-index:0}
+.home-btn:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 24px 60px rgba(0,0,0,.5);animation:none}
+.home-btn:hover .btn-arrow{transform:translateX(5px)}
+.home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.20);border-radius:14px;z-index:0;transition:background .25s}
+.home-btn:hover::before{background:rgba(0,0,0,0.10)}
 .home-btn-icon{font-size:3rem;position:relative;z-index:1}
 .home-btn-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1.5px;text-align:center;line-height:1.2;position:relative;z-index:1}
 .home-btn-sub{font-size:.78rem;color:rgba(255,255,255,.9);text-align:center;line-height:1.5;position:relative;z-index:1}
 .home-btn-a .home-btn-title{color:#FF2D2D;background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;backdrop-filter:blur(2px)}
 .home-btn-a .home-btn-sub{background:rgba(255,255,255,0.12);padding:3px 8px;border-radius:4px}
+.btn-arrow{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.2);border-radius:50%;width:36px;height:36px;font-size:1.1rem;position:relative;z-index:1;transition:transform .3s,background .3s;margin-top:.25rem}
+.home-btn:hover .btn-arrow{background:rgba(255,255,255,0.35)}
+.btn-tap{font-size:.68rem;color:rgba(255,255,255,0.7);position:relative;z-index:1;letter-spacing:1px;text-transform:uppercase;margin-top:-.3rem;animation:tapBlink 1.8s ease-in-out infinite}
+@keyframes tapBlink{0%,100%{opacity:.5}50%{opacity:1}}
 
 .products-section{max-width:1300px;margin:0 auto;padding:1.5rem 2rem 5rem}
 .cat-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;margin-top:2.5rem}
@@ -158,11 +166,15 @@ footer a{color:#60A5FA;text-decoration:none}
           <span class="home-btn-icon">🎮</span>
           <span class="home-btn-title">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri</span>
           <span class="home-btn-sub">Greenbox, aksesuarlar ve özel studio kurulumları</span>
+          <span class="btn-arrow">→</span>
+          <span class="btn-tap">Keşfet</span>
         </a>
         <a class="home-btn home-btn-b" onclick="showPage('pageDesigner');return false;" href="#">
           <span class="home-btn-icon">🏗️</span>
           <span class="home-btn-title">Kendi Diorama Garajını<br>Tasarla</span>
           <span class="home-btn-sub">Tabela rengi, logo ve isim ekle — sipariş ver</span>
+          <span class="btn-arrow">→</span>
+          <span class="btn-tap">Tasarla</span>
         </a>
       </div>
     </div>
