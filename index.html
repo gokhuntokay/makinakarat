@@ -28,43 +28,16 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,8vw,5.5rem);letter-spacing:3px;color:#fff;line-height:1;margin-bottom:.75rem}
 .hero h1 span{color:#60A5FA}
 .hero p{color:#60A5FA;font-size:1.15rem;font-weight:600;line-height:1.6;margin-bottom:2.5rem}
-.home-btns{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem;padding:.75rem}
-
-/* Dış wrapper — glow animasyonu için */
-.home-btn-wrap{position:relative;max-width:320px;width:100%}
-.home-btn-wrap::before,.home-btn-wrap::after{content:"";position:absolute;inset:-5px;border-radius:20px;z-index:0;pointer-events:none;animation:glowPulse 2s ease-in-out infinite}
-.home-btn-wrap::after{inset:-10px;animation:glowPulse 2s ease-in-out infinite .5s;opacity:.5}
-/* Sol kutu = yeşil glow */
-.home-btn-wrap-a::before,.home-btn-wrap-a::after{background:linear-gradient(135deg,#22C55E,#86efac);filter:blur(7px)}
-/* Sağ kutu = mavi glow */
-.home-btn-wrap-b::before,.home-btn-wrap-b::after{background:linear-gradient(135deg,#1A56DB,#60A5FA);filter:blur(7px)}
-@keyframes glowPulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.8;transform:scale(1.02)}}
-
-/* Butonun kendisi */
-.home-btn{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 2rem 1.25rem;border-radius:16px;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;width:100%;min-height:200px;justify-content:flex-start;position:relative;z-index:1;overflow:hidden}
-.home-btn-a{background:url("assets/cosplay-1.jpg") center/cover no-repeat;border:2.5px solid #22C55E;color:#fff}
-.home-btn-b{background:url("assets/garaj-1.png") center/cover no-repeat;border:2.5px solid #60A5FA;color:#fff}
-.home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.22);border-radius:14px;z-index:0;transition:background .25s}
-.home-btn:hover{transform:translateY(-8px) scale(1.03)}
-.home-btn-a:hover{box-shadow:0 24px 60px rgba(34,197,94,.4)}
-.home-btn-b:hover{box-shadow:0 24px 60px rgba(26,86,219,.4)}
-.home-btn:hover::before{background:rgba(0,0,0,0.08)}
-
-/* İçerik */
-.home-btn-icon{font-size:2.6rem;position:relative;z-index:1;margin-top:.2rem}
-.home-btn-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.5px;text-align:center;line-height:1.25;position:relative;z-index:1;color:#FF2D2D;background:rgba(255,255,255,0.15);padding:5px 12px;border-radius:7px;backdrop-filter:blur(3px)}
-.home-btn-sub{font-size:.78rem;color:rgba(255,255,255,.9);text-align:center;line-height:1.5;position:relative;z-index:1;background:rgba(0,0,0,0.2);padding:3px 8px;border-radius:4px}
-
-/* Ok + tap */
-.btn-bottom{display:flex;flex-direction:column;align-items:center;gap:.25rem;position:relative;z-index:1;margin-top:auto;padding-top:.5rem}
-.btn-arrow{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;width:38px;height:38px;font-size:1.1rem;color:#fff;font-weight:bold;transition:transform .3s,box-shadow .3s}
-.home-btn-a .btn-arrow{background:#22C55E;box-shadow:0 0 10px rgba(34,197,94,.6)}
-.home-btn-b .btn-arrow{background:#60A5FA;box-shadow:0 0 10px rgba(96,165,250,.6)}
-.home-btn:hover .btn-arrow{transform:translateX(7px) scale(1.15)}
-.home-btn-a:hover .btn-arrow{box-shadow:0 0 20px rgba(34,197,94,.9)}
-.home-btn-b:hover .btn-arrow{box-shadow:0 0 20px rgba(96,165,250,.9)}
-.btn-tap{font-size:.65rem;color:rgba(255,255,255,0.75);letter-spacing:1.5px;text-transform:uppercase;animation:tapBlink 1.6s ease-in-out infinite;font-weight:600}
-@keyframes tapBlink{0%,100%{opacity:.4}50%{opacity:1}}
+.home-btns{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
+.home-btn{display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:2rem 2.5rem;border-radius:16px;border:2px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;max-width:320px;width:100%}
+.home-btn-a{background:url("assets/cosplay-1.jpg") center/cover no-repeat;border-color:#60A5FA;color:#fff;position:relative;overflow:hidden}
+.home-btn-b{background:url("assets/garaj-1.png") center/cover no-repeat;border-color:#86efac;color:#fff;position:relative;overflow:hidden}
+.home-btn:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4)}.home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.20);border-radius:14px;z-index:0}
+.home-btn-icon{font-size:3rem;position:relative;z-index:1}
+.home-btn-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1.5px;text-align:center;line-height:1.2;position:relative;z-index:1}
+.home-btn-sub{font-size:.78rem;color:rgba(255,255,255,.9);text-align:center;line-height:1.5;position:relative;z-index:1}
+.home-btn-a .home-btn-title{color:#FF2D2D;background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;backdrop-filter:blur(2px)}
+.home-btn-a .home-btn-sub{background:rgba(255,255,255,0.12);padding:3px 8px;border-radius:4px}
 
 .products-section{max-width:1300px;margin:0 auto;padding:1.5rem 2rem 5rem}
 .cat-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;margin-top:2.5rem}
@@ -83,13 +56,15 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .card-body{padding:1rem 1.1rem 1.1rem}
 .card-cat{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);margin-bottom:.2rem}
 .card-name{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px;color:var(--dark);margin-bottom:.2rem}
-.card-desc{color:var(--muted);font-size:.78rem;line-height:1.5;margin-bottom:.9rem}
-.card-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.card-desc{color:var(--muted);font-size:.78rem;line-height:1.5;margin-bottom:0}
+.card-footer{display:flex;flex-direction:column;align-items:stretch;gap:.6rem;margin-top:.9rem}
 .price{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--dark);letter-spacing:1px;line-height:1}
 .price sub{font-size:.8rem;vertical-align:middle;margin-right:1px;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:700}
-.tg-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--blue);color:#fff;font-weight:700;font-size:.78rem;padding:.5rem .9rem;border-radius:7px;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
-.tg-btn:hover{background:var(--blue-light);transform:scale(1.04)}
-.tg-btn svg{width:14px;height:14px;fill:#fff;flex-shrink:0}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--blue);color:#fff;font-weight:700;font-size:.85rem;padding:.65rem 1rem;border-radius:8px;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;width:100%}
+.tg-btn:hover{background:var(--blue-light);transform:scale(1.02)}
+.tg-btn svg{width:15px;height:15px;fill:#fff;flex-shrink:0}
+.card{cursor:pointer}
+.card-desc{color:var(--muted);font-size:.78rem;line-height:1.5;margin-bottom:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .back-btn{display:inline-flex;align-items:center;gap:.5rem;margin:1.5rem 2rem;padding:.6rem 1.2rem;background:var(--white);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem;color:var(--text);transition:all .2s;text-decoration:none}
 .back-btn:hover{border-color:var(--blue);color:var(--blue)}
 
@@ -181,22 +156,16 @@ footer a{color:#60A5FA;text-decoration:none}
       <h1>MakiNakarat <span>Studio</span></h1>
       <p>El yapımı diorama garajlar ve yayıncı/fenomenler için özel studio ürünleri — sınırlı sayıda, hepsi özel üretim.</p>
       <div class="home-btns">
-        <div class="home-btn-wrap home-btn-wrap-a">
-          <a class="home-btn home-btn-a" onclick="showPage('pageGreenbox');return false;" href="#">
-            <span class="home-btn-title">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri</span>
-            <span class="home-btn-icon">🎮</span>
-            <span class="home-btn-sub">Greenbox, aksesuarlar ve özel studio kurulumları</span>
-            <span class="btn-bottom"><span class="btn-arrow">→</span><span class="btn-tap">Keşfet</span></span>
-          </a>
-        </div>
-        <div class="home-btn-wrap home-btn-wrap-b">
-          <a class="home-btn home-btn-b" onclick="showPage('pageDesigner');return false;" href="#">
-            <span class="home-btn-title">Kendi Diorama Garajını<br>Tasarla</span>
-            <span class="home-btn-icon">🏗️</span>
-            <span class="home-btn-sub">Tabela rengi, logo ve isim ekle — sipariş ver</span>
-            <span class="btn-bottom"><span class="btn-arrow">→</span><span class="btn-tap">Tasarla</span></span>
-          </a>
-        </div>
+        <a class="home-btn home-btn-a" onclick="showPage('pageGreenbox');return false;" href="#">
+          <span class="home-btn-icon">🎮</span>
+          <span class="home-btn-title">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri</span>
+          <span class="home-btn-sub">Greenbox, aksesuarlar ve özel studio kurulumları</span>
+        </a>
+        <a class="home-btn home-btn-b" onclick="showPage('pageDesigner');return false;" href="#">
+          <span class="home-btn-icon">🏗️</span>
+          <span class="home-btn-title">Kendi Diorama Garajını<br>Tasarla</span>
+          <span class="home-btn-sub">Tabela rengi, logo ve isim ekle — sipariş ver</span>
+        </a>
       </div>
     </div>
   </div>
@@ -328,8 +297,10 @@ const greenboxes=[
   document.getElementById('gbBadge').textContent=greenboxes.length+' Ürün';
   greenboxes.forEach((p,i)=>{
     const msg=encodeURIComponent(`Merhaba! "${p.name}" ürünü hakkında bilgi almak istiyorum.`);
+    const tgUrl=`${TELEGRAM}?text=${msg}`;
     const c=document.createElement('article');c.className='card';c.style.animationDelay=`${i*.06}s`;
-    c.innerHTML=`<div class="card-img-wrap"><img class="card-img" src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/><div class="card-img-placeholder" style="display:none;">${phSVG}</div><span class="card-num">GB-0${p.id}</span></div><div class="card-body"><div class="card-cat">Cosplay · Gaming · Yayıncı</div><div class="card-name">${p.name}</div><div class="card-desc">${p.desc}</div><div class="card-footer"><span class="price"><sub>₺</sub>${p.price}</span><a class="tg-btn" href="${TELEGRAM}?text=${msg}" target="_blank">${tgSVG} Sipariş Ver</a></div></div>`;
+    c.addEventListener('click',()=>window.open(tgUrl,'_blank'));
+    c.innerHTML=`<div class="card-img-wrap"><img class="card-img" src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/><div class="card-img-placeholder" style="display:none;">${phSVG}</div><span class="card-num">GB-0${p.id}</span></div><div class="card-body"><div class="card-cat">Cosplay · Gaming · Yayıncı</div><div class="card-name">${p.name}</div><div class="card-desc">${p.desc}</div><div class="card-footer"><span class="price"><sub>₺</sub>${p.price}</span><a class="tg-btn" href="${tgUrl}" target="_blank" onclick="event.stopPropagation()">${tgSVG} Sipariş Ver</a></div></div>`;
     g.appendChild(c);
   });
 })();
