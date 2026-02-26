@@ -30,9 +30,9 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .hero p{color:#94A3B8;font-size:.95rem;line-height:1.6;margin-bottom:2.5rem}
 .home-btns{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
 .home-btn{display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:2rem 2.5rem;border-radius:16px;border:2px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;max-width:320px;width:100%}
-.home-btn-a{background:url("assets/cosplay-1.png") center/cover no-repeat;border-color:#60A5FA;color:#fff;position:relative;overflow:hidden}
-.home-btn-b{background:url("assets/garaj-1.png") center/cover no-repeat;border-color:#86efac;color:#fff;position:relative;overflow:hidden}
-.home-btn:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4)}.home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.20);border-radius:14px;z-index:0}
+.home-btn-a{background:url("assets/asset_001.png") center/cover no-repeat;border-color:#60A5FA;color:#fff;position:relative;overflow:hidden}
+.home-btn-b{background:url("assets/asset_002.png") center/cover no-repeat;border-color:#86efac;color:#fff;position:relative;overflow:hidden}
+.home-btn:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4)}.home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45);border-radius:14px;z-index:0}
 .home-btn-icon{font-size:3rem;position:relative;z-index:1}
 .home-btn-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1.5px;text-align:center;line-height:1.2;position:relative;z-index:1}
 .home-btn-sub{font-size:.78rem;color:rgba(255,255,255,.9);text-align:center;line-height:1.5;position:relative;z-index:1}
@@ -275,18 +275,18 @@ function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.
 
 // GREENBOX
 const greenboxes=[
-  {id:1,name:"Greenbox Yeşil Çekim Seti (2x3 Metre)",desc:"200 cm x 300 cm (2x3 metre) Yüzde yüz pamuk dikişsiz tek parça sağlam ve ışığı yansıtmaz FON STANDI, 2 adet TRİPOD AYAK (200 cm yüksekliğe kadar uzayabilir). 3 adet CROSS BAR ÇUBUK (200 cm genişliğe kadar uzayabilir). 1 adet TAŞIMA ÇANTASI, 4 adet FON MANDALI, 2 adet tek duylu SOFTBOX, 2 M ışık ayağı, 2 adet 50 WATT 4500 LÜMEN Led Lamba",price:"4150",image:"greenbox-1.jpg"},
-  {id:2,name:"Fon Standı Taşınabilir 2x3 Metre",desc:"Yükseklik 2 metre (2 adet ayak) Genişlik 3 metre (4 adet CROSSBAR çubuk pimli geçmeli) TAŞIMA ÇANTASI 4 adet MANDAL",price:"1250",image:"greenbox-2.jpg"},
-  {id:3,name:"200*200cm T Stand Bar Fon Perde Çekim Standı",desc:"T stand 2x2 metre",price:"1000",image:"greenbox-3.jpg"},
-  {id:4,name:"Yeşil Fon Perde (2X3 M) Fon Standı",desc:"Chromakey-Green Screen- Greenbox Yeşil Fon Perde(2x3 M) + Fon Standı 2X3 YESIL FON PERDESİ : Pamuk dikişsiz tek parça Fon Standı : 2 adet AYAK 200 cm yüksekliğe kadar uzayabilir. 3 adet BAR 200 cm genişliğe kadar uzayabilir. 1 adet taşıma çantası",price:"2000",image:"greenbox-4.jpg"},
-  {id:5,name:"Yeşil Fon Perde (1.5x2 M) + Fon Standı",desc:"Fon perdesi : Boyutu :150 cm genişlik x 200 cm uzunluk (1.5x2 metre) Dikişsiz Tek parça Kaliteli Pamuklu, Işığı kesinlikle yansıtmaz Fon standı : 2 adet ayak 200 cm yüksekliğe kadar uzayabilir. 2 adet çubuk 150 cm genişliğe kadar uzayabilir.1 adet taşıma çantası hediyelidir.",price:"1650",image:"greenbox-5.jpg"},
-  {id:6,name:"Green Screen Perde (1.5x2 M) Tek Ayaklı Fon Standı",desc:"Fon Perde Boyutu : 150 cm x 200 cm (1.5x2 m) Yüzde yüz Pamuk dikişsiz tek parça Kaliteli, Işığı kesinlikle yansıtmaz FON STANDI: 1 adet tripod ayak 200 cm/ 2 m yüksekliğe kadar uzayabilir.2 adet cross bar çubuk 150 cm genişliğe kadar uzayabilir.5 ADET MANDAL",price:"1250",image:"greenbox-6.jpg"},
-  {id:7,name:"2x3m Greenbox Yeşil fon kiti T Standı",desc:"Fon perde Boyutu : 200 cm x 300 cm (2x3 metre) Yüzde yüz Pamuk dikişsiz tek parça kaliteli, Işığı kesinlikle yansıtmaz FON STANDI : 1 adet tripod ayak 200 cm/ 2 m yüksekliğe kadar uzayabilir.3 adet cross bar çubuk 200 cm genişliğe kadar uzayabilir.5 ADET MANDAL HEDİYE 1 ADET TAŞIMA ÇANTASI -",price:"1700",image:"greenbox-7.jpg"},
-  {id:8,name:"Estetisyen Stüdyo Serisi",desc:"Metal katlanabilir ve taşınabilir SERUM-GÜZELLİK MERKEZİ-MAKYAJ ASKISI portatif kolay kurulum TAŞIMA ÇANTALI",price:"1000",image:"greenbox-8.jpg"},
-  {id:9,name:"Işık ayağı",desc:"Işık Ayağı Light Stand 260 Cm = 2.6 metre.",price:"700",image:"greenbox-9.jpg"},
-  {id:10,name:"Softbox 2li Set",desc:"Ikili Softbox Seti 50x70cm Lambalı Toplam 9000 Lümen",price:"2350",image:"greenbox-10.jpg"},
-  {id:11,name:"2x3 Fon Perde",desc:"2x3 metre Chromakey Green Screen Greenbox Yeşil Fon Perde, Gamer, Yayıncı, Stream 4 mandallı",price:"1000",image:"greenbox-11.jpg"},
-  {id:12,name:"2x3 Çekim Seti Full",desc:"2x3 metre Chromakey Green Screen Greenbox Yeşil Fon Perde, 2 SOFTBOX, 1 BOOM ARM, Çanta ve Ampul Hediyeli",price:"7000",image:"greenbox-12.jpg"},
+  {id:1,name:"Greenbox Yeşil Çekim Seti (2x3 Metre)",desc:"200 cm x 300 cm (2x3 metre) Yüzde yüz pamuk dikişsiz tek parça sağlam ve ışığı yansıtmaz FON STANDI, 2 adet TRİPOD AYAK (200 cm yüksekliğe kadar uzayabilir). 3 adet CROSS BAR ÇUBUK (200 cm genişliğe kadar uzayabilir). 1 adet TAŞIMA ÇANTASI, 4 adet FON MANDALI, 2 adet tek duylu SOFTBOX, 2 M ışık ayağı, 2 adet 50 WATT 4500 LÜMEN Led Lamba",price:"4150",image:"greenbox-1.jpeg"},
+  {id:2,name:"Fon Standı Taşınabilir 2x3 Metre",desc:"Yükseklik 2 metre (2 adet ayak) Genişlik 3 metre (4 adet CROSSBAR çubuk pimli geçmeli) TAŞIMA ÇANTASI 4 adet MANDAL",price:"1250",image:"greenbox-2.jpeg"},
+  {id:3,name:"200*200cm T Stand Bar Fon Perde Çekim Standı",desc:"T stand 2x2 metre",price:"1000",image:"greenbox-3.jpeg"},
+  {id:4,name:"Yeşil Fon Perde (2X3 M) Fon Standı",desc:"Chromakey-Green Screen- Greenbox Yeşil Fon Perde(2x3 M) + Fon Standı 2X3 YESIL FON PERDESİ : Pamuk dikişsiz tek parça Fon Standı : 2 adet AYAK 200 cm yüksekliğe kadar uzayabilir. 3 adet BAR 200 cm genişliğe kadar uzayabilir. 1 adet taşıma çantası",price:"2000",image:"greenbox-4.jpeg"},
+  {id:5,name:"Yeşil Fon Perde (1.5x2 M) + Fon Standı",desc:"Fon perdesi : Boyutu :150 cm genişlik x 200 cm uzunluk (1.5x2 metre) Dikişsiz Tek parça Kaliteli Pamuklu, Işığı kesinlikle yansıtmaz Fon standı : 2 adet ayak 200 cm yüksekliğe kadar uzayabilir. 2 adet çubuk 150 cm genişliğe kadar uzayabilir.1 adet taşıma çantası hediyelidir.",price:"1650",image:"greenbox-5.jpeg"},
+  {id:6,name:"Green Screen Perde (1.5x2 M) Tek Ayaklı Fon Standı",desc:"Fon Perde Boyutu : 150 cm x 200 cm (1.5x2 m) Yüzde yüz Pamuk dikişsiz tek parça Kaliteli, Işığı kesinlikle yansıtmaz FON STANDI: 1 adet tripod ayak 200 cm/ 2 m yüksekliğe kadar uzayabilir.2 adet cross bar çubuk 150 cm genişliğe kadar uzayabilir.5 ADET MANDAL",price:"1250",image:"greenbox-6.jpeg"},
+  {id:7,name:"2x3m Greenbox Yeşil fon kiti T Standı",desc:"Fon perde Boyutu : 200 cm x 300 cm (2x3 metre) Yüzde yüz Pamuk dikişsiz tek parça kaliteli, Işığı kesinlikle yansıtmaz FON STANDI : 1 adet tripod ayak 200 cm/ 2 m yüksekliğe kadar uzayabilir.3 adet cross bar çubuk 200 cm genişliğe kadar uzayabilir.5 ADET MANDAL HEDİYE 1 ADET TAŞIMA ÇANTASI -",price:"1700",image:"greenbox-7.jpeg"},
+  {id:8,name:"Estetisyen Stüdyo Serisi",desc:"Metal katlanabilir ve taşınabilir SERUM-GÜZELLİK MERKEZİ-MAKYAJ ASKISI portatif kolay kurulum TAŞIMA ÇANTALI",price:"1000",image:"greenbox-8.jpeg"},
+  {id:9,name:"Işık ayağı",desc:"Işık Ayağı Light Stand 260 Cm = 2.6 metre.",price:"700",image:"greenbox-9.jpeg"},
+  {id:10,name:"Softbox 2li Set",desc:"Ikili Softbox Seti 50x70cm Lambalı Toplam 9000 Lümen",price:"2350",image:"greenbox-10.jpeg"},
+  {id:11,name:"2x3 Fon Perde",desc:"2x3 metre Chromakey Green Screen Greenbox Yeşil Fon Perde, Gamer, Yayıncı, Stream 4 mandallı",price:"1000",image:"greenbox-11.jpeg"},
+  {id:12,name:"2x3 Çekim Seti Full",desc:"2x3 metre Chromakey Green Screen Greenbox Yeşil Fon Perde, 2 SOFTBOX, 1 BOOM ARM, Çanta ve Ampul Hediyeli",price:"7000",image:"greenbox-12.jpeg"},
 ];
 (function(){
   const g=document.getElementById('gridGreenbox');
