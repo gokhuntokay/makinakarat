@@ -29,26 +29,40 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .hero h1 span{color:#60A5FA}
 .hero p{color:#60A5FA;font-size:1.15rem;font-weight:600;line-height:1.6;margin-bottom:2.5rem}
 .home-btns{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem;padding:.75rem}
+
+/* Dış wrapper — glow animasyonu için */
 .home-btn-wrap{position:relative;max-width:320px;width:100%}
-.home-btn-wrap::before,.home-btn-wrap::after{content:"";position:absolute;border-radius:20px;z-index:0;pointer-events:none}
-.home-btn-wrap::before{inset:-4px;animation:glowPulse 2s ease-in-out infinite;opacity:.9}
-.home-btn-wrap::after{inset:-8px;animation:glowPulse 2s ease-in-out infinite .4s;opacity:.5}
-.home-btn-wrap-a::before,.home-btn-wrap-a::after{background:linear-gradient(135deg,#FF2D2D,#ff6b6b,#FF2D2D);filter:blur(6px)}
-.home-btn-wrap-b::before,.home-btn-wrap-b::after{background:linear-gradient(135deg,#FF2D2D,#ff6b6b,#FF2D2D);filter:blur(6px)}
-@keyframes glowPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.85;transform:scale(1.025)}}
-.home-btn{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 2rem 1.25rem;border-radius:16px;border:2.5px solid rgba(255,255,255,0.3);cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;width:100%;min-height:200px;justify-content:flex-start;position:relative;z-index:1}
-.home-btn-a{background:url("assets/cosplay-1.jpg") center/cover no-repeat;color:#fff;overflow:hidden}
-.home-btn-b{background:url("assets/garaj-1.png") center/cover no-repeat;color:#fff;overflow:hidden}
+.home-btn-wrap::before,.home-btn-wrap::after{content:"";position:absolute;inset:-5px;border-radius:20px;z-index:0;pointer-events:none;animation:glowPulse 2s ease-in-out infinite}
+.home-btn-wrap::after{inset:-10px;animation:glowPulse 2s ease-in-out infinite .5s;opacity:.5}
+/* Sol kutu = yeşil glow */
+.home-btn-wrap-a::before,.home-btn-wrap-a::after{background:linear-gradient(135deg,#22C55E,#86efac);filter:blur(7px)}
+/* Sağ kutu = mavi glow */
+.home-btn-wrap-b::before,.home-btn-wrap-b::after{background:linear-gradient(135deg,#1A56DB,#60A5FA);filter:blur(7px)}
+@keyframes glowPulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.8;transform:scale(1.02)}}
+
+/* Butonun kendisi */
+.home-btn{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 2rem 1.25rem;border-radius:16px;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;width:100%;min-height:200px;justify-content:flex-start;position:relative;z-index:1;overflow:hidden}
+.home-btn-a{background:url("assets/cosplay-1.jpg") center/cover no-repeat;border:2.5px solid #22C55E;color:#fff}
+.home-btn-b{background:url("assets/garaj-1.png") center/cover no-repeat;border:2.5px solid #60A5FA;color:#fff}
 .home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.22);border-radius:14px;z-index:0;transition:background .25s}
-.home-btn:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 28px 60px rgba(255,45,45,.45)}
+.home-btn:hover{transform:translateY(-8px) scale(1.03)}
+.home-btn-a:hover{box-shadow:0 24px 60px rgba(34,197,94,.4)}
+.home-btn-b:hover{box-shadow:0 24px 60px rgba(26,86,219,.4)}
 .home-btn:hover::before{background:rgba(0,0,0,0.08)}
-.home-btn:hover .btn-arrow{transform:translateX(7px) scale(1.2)}
+
+/* İçerik */
 .home-btn-icon{font-size:2.6rem;position:relative;z-index:1;margin-top:.2rem}
 .home-btn-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.5px;text-align:center;line-height:1.25;position:relative;z-index:1;color:#FF2D2D;background:rgba(255,255,255,0.15);padding:5px 12px;border-radius:7px;backdrop-filter:blur(3px)}
 .home-btn-sub{font-size:.78rem;color:rgba(255,255,255,.9);text-align:center;line-height:1.5;position:relative;z-index:1;background:rgba(0,0,0,0.2);padding:3px 8px;border-radius:4px}
+
+/* Ok + tap */
 .btn-bottom{display:flex;flex-direction:column;align-items:center;gap:.25rem;position:relative;z-index:1;margin-top:auto;padding-top:.5rem}
-.btn-arrow{display:inline-flex;align-items:center;justify-content:center;background:#FF2D2D;border:2px solid rgba(255,255,255,0.5);border-radius:50%;width:38px;height:38px;font-size:1.1rem;color:#fff;font-weight:bold;transition:transform .3s,background .3s;box-shadow:0 0 12px rgba(255,45,45,.6)}
-.home-btn:hover .btn-arrow{background:#ff4444;box-shadow:0 0 20px rgba(255,45,45,.9)}
+.btn-arrow{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;width:38px;height:38px;font-size:1.1rem;color:#fff;font-weight:bold;transition:transform .3s,box-shadow .3s}
+.home-btn-a .btn-arrow{background:#22C55E;box-shadow:0 0 10px rgba(34,197,94,.6)}
+.home-btn-b .btn-arrow{background:#60A5FA;box-shadow:0 0 10px rgba(96,165,250,.6)}
+.home-btn:hover .btn-arrow{transform:translateX(7px) scale(1.15)}
+.home-btn-a:hover .btn-arrow{box-shadow:0 0 20px rgba(34,197,94,.9)}
+.home-btn-b:hover .btn-arrow{box-shadow:0 0 20px rgba(96,165,250,.9)}
 .btn-tap{font-size:.65rem;color:rgba(255,255,255,0.75);letter-spacing:1.5px;text-transform:uppercase;animation:tapBlink 1.6s ease-in-out infinite;font-weight:600}
 @keyframes tapBlink{0%,100%{opacity:.4}50%{opacity:1}}
 
