@@ -31,7 +31,7 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .home-btns{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem;padding:.75rem}
 
 /* Dış wrapper — glow animasyonu için */
-.home-btn-wrap{position:relative;max-width:320px;width:100%}
+.home-btn-wrap{position:relative;max-width:320px;width:100%;display:flex;flex-direction:column}
 .home-btn-wrap::before,.home-btn-wrap::after{content:"";position:absolute;inset:-5px;border-radius:20px;z-index:0;pointer-events:none;animation:glowPulse 2s ease-in-out infinite}
 .home-btn-wrap::after{inset:-10px;animation:glowPulse 2s ease-in-out infinite .5s;opacity:.5}
 /* Sol kutu = yeşil glow */
@@ -41,7 +41,7 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 @keyframes glowPulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.8;transform:scale(1.02)}}
 
 /* Butonun kendisi */
-.home-btn{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.5rem 2rem 1.25rem;border-radius:16px;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;width:100%;min-height:200px;justify-content:flex-start;position:relative;z-index:1;overflow:hidden}
+.home-btn{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:1rem;border-radius:16px;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;width:100%;aspect-ratio:1/1;justify-content:center;position:relative;z-index:1;overflow:hidden}
 .home-btn-a{background:url("assets/cosplay-1.jpg") center/cover no-repeat;border:2.5px solid #22C55E;color:#fff}
 .home-btn-b{background:url("assets/garaj-1.png") center/cover no-repeat;border:2.5px solid #60A5FA;color:#fff}
 .home-btn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.22);border-radius:14px;z-index:0;transition:background .25s}
@@ -52,8 +52,10 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 
 /* İçerik */
 .home-btn-icon{font-size:2.6rem;position:relative;z-index:1;margin-top:.2rem}
-.home-btn-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.5px;text-align:center;line-height:1.25;position:relative;z-index:1;color:#FF2D2D;background:rgba(255,255,255,0.15);padding:5px 12px;border-radius:7px;backdrop-filter:blur(3px)}
-.home-btn-sub{font-size:.78rem;color:rgba(255,255,255,.9);text-align:center;line-height:1.5;position:relative;z-index:1;background:rgba(0,0,0,0.2);padding:3px 8px;border-radius:4px}
+.home-btn-title{display:none}
+.home-btn-sub{display:none}
+
+
 
 /* Ok + tap */
 .btn-bottom{display:flex;flex-direction:column;align-items:center;gap:.25rem;position:relative;z-index:1;margin-top:auto;padding-top:.5rem}
@@ -87,7 +89,8 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .card-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
 .price{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:var(--dark);letter-spacing:1px;line-height:1}
 .price sub{font-size:.8rem;vertical-align:middle;margin-right:1px;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:700}
-.tg-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--blue);color:#fff;font-weight:700;font-size:.78rem;padding:.5rem .9rem;border-radius:7px;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.tg-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--blue);color:#fff;font-weight:700;font-size:.78rem;padding:.5rem .9rem;border-radius:7px;text-decoration:none;white-space:nowrap;animation:tgBtnPulse 1.8s ease-in-out infinite}
+@keyframes tgBtnPulse{0%,100%{box-shadow:0 0 0 0 rgba(26,86,219,.5);background:#1A56DB}50%{box-shadow:0 0 0 7px rgba(26,86,219,0);background:#2563EB}}
 .tg-btn:hover{background:var(--blue-light);transform:scale(1.04)}
 .tg-btn svg{width:14px;height:14px;fill:#fff;flex-shrink:0}
 .back-btn{display:inline-flex;align-items:center;gap:.5rem;margin:1.5rem 2rem;padding:.6rem 1.2rem;background:var(--white);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem;color:var(--text);transition:all .2s;text-decoration:none}
@@ -159,34 +162,35 @@ footer a{color:#60A5FA;text-decoration:none}
 @media(max-width:900px){.designer-layout{grid-template-columns:1fr}}
 @media(max-width:600px){
   nav{padding:0 .75rem}
-  .home-btns{flex-direction:row !important;align-items:stretch;gap:.6rem;padding:.4rem}
-  .home-btn-wrap{max-width:none;flex:1;min-width:0}
-  .home-btn{min-height:0;aspect-ratio:1/1;padding:.75rem .5rem;gap:.4rem;background-size:cover !important}
-  .home-btn-title{font-size:.85rem;padding:3px 6px;letter-spacing:.5px}
-  .home-btn-icon{font-size:1.8rem}
-  .home-btn-sub{font-size:.62rem;padding:2px 5px}
-  .btn-arrow{width:26px;height:26px;font-size:.8rem}
+  .home-btns{flex-direction:row !important;gap:.6rem;padding:.4rem}
+  .home-btn-wrap{flex:1;min-width:0}
+  .home-btn{padding:.75rem .5rem}
+  .home-btn-icon{font-size:2rem}
+  .btn-arrow{width:28px;height:28px;font-size:.85rem}
   .btn-tap{font-size:.55rem}
+  .home-btn-label{font-size:.8rem;padding:6px 6px}
   .grid{grid-template-columns:1fr 1fr;gap:.6rem}
   .card-img-wrap{aspect-ratio:1/1}
   .card-body{padding:.6rem .7rem .7rem}
   .card-name{font-size:1rem}
   .card-desc{font-size:.72rem;margin-bottom:.5rem}
   .card-footer{flex-direction:column;align-items:stretch;gap:.4rem}
-  .tg-btn{justify-content:center;width:100%;padding:.55rem .5rem;font-size:.8rem}
+  .tg-btn{justify-content:center;width:100%;padding:.55rem .5rem;font-size:.72rem}
   .price{font-size:1.4rem}
   .products-section{padding:1rem .6rem 4rem}
 }
 
+.home-btn-label{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.8px;text-align:center;line-height:1.3;color:#fff;background:rgba(15,23,42,0.88);padding:8px 10px;border-radius:0 0 12px 12px;position:relative;z-index:2}
+
 /* ── MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:flex-start;justify-content:center;padding:0;overflow-y:auto}
-.modal-overlay.open{display:flex}
-.modal-box{background:#fff;width:100%;max-width:540px;min-height:100vh;position:relative;display:flex;flex-direction:column;margin:0 auto}
-.modal-back{display:flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;background:#f1f5f9;border-bottom:1px solid #e2e8f0;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--dark);border:none;width:100%;text-align:left}
-.modal-back:hover{background:#e2e8f0}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;overflow-y:auto}
+.modal-overlay.open{display:block}
+.modal-box{background:#fff;width:100%;max-width:540px;min-height:100%;margin:0 auto;display:flex;flex-direction:column}
+.modal-back{display:flex;align-items:center;gap:.6rem;padding:1rem 1.25rem;background:#EFF6FF;border:none;border-bottom:3px solid #1A56DB;border-left:5px solid #1A56DB;cursor:pointer;font-weight:800;font-size:1rem;color:#1A56DB;width:100%;text-align:left;letter-spacing:.3px}
+.modal-back:hover{background:#DBEAFE}
 .modal-img{width:100%;aspect-ratio:1/1;object-fit:contain;background:#f8fafc;padding:1rem}
-.modal-tg-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;background:#1A56DB;color:#fff;font-weight:800;font-size:1rem;padding:1rem;text-decoration:none;letter-spacing:.5px;animation:tgPulse 1.8s ease-in-out infinite}
-@keyframes tgPulse{0%,100%{background:#1A56DB;box-shadow:0 0 0 0 rgba(26,86,219,.4)}50%{background:#2563EB;box-shadow:0 0 0 8px rgba(26,86,219,0)}}
+.modal-tg-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;background:#1A56DB;color:#fff;font-weight:800;font-size:1rem;padding:1.1rem;text-decoration:none;letter-spacing:.5px;animation:modalTgPulse 1.8s ease-in-out infinite}
+@keyframes modalTgPulse{0%,100%{background:#1A56DB;box-shadow:inset 0 0 0 0 rgba(255,255,255,.2)}50%{background:#2563EB;box-shadow:inset 0 0 20px 0 rgba(255,255,255,.15)}}
 .modal-tg-btn svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
 .modal-body{padding:1.25rem 1.5rem 2rem;flex:1}
 .modal-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;color:var(--dark);margin-bottom:.5rem}
@@ -218,19 +222,17 @@ footer a{color:#60A5FA;text-decoration:none}
       <div class="home-btns">
         <div class="home-btn-wrap home-btn-wrap-a">
           <a class="home-btn home-btn-a" onclick="showPage('pageGreenbox');return false;" href="#">
-            <span class="home-btn-title">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri</span>
             <span class="home-btn-icon">🎮</span>
-            <span class="home-btn-sub">Greenbox, aksesuarlar ve özel studio kurulumları</span>
             <span class="btn-bottom"><span class="btn-arrow">→</span><span class="btn-tap">Keşfet</span></span>
           </a>
+          <div class="home-btn-label">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri için tıkla</div>
         </div>
         <div class="home-btn-wrap home-btn-wrap-b">
           <a class="home-btn home-btn-b" onclick="showPage('pageDesigner');return false;" href="#">
-            <span class="home-btn-title">Kendi Diorama Garajını<br>Tasarla</span>
             <span class="home-btn-icon">🏗️</span>
-            <span class="home-btn-sub">Tabela rengi, logo ve isim ekle — sipariş ver</span>
             <span class="btn-bottom"><span class="btn-arrow">→</span><span class="btn-tap">Tasarla</span></span>
           </a>
+          <div class="home-btn-label">Diorama Garajını<br>Tasarlamak için tıkla</div>
         </div>
       </div>
     </div>
@@ -366,7 +368,7 @@ const greenboxes=[
     const tgUrl=`${TELEGRAM}?text=${msg}`;
     const c=document.createElement('article');c.className='card';c.style.animationDelay=`${i*.06}s`;c.style.cursor='pointer';
     c.addEventListener('click',()=>openModal(p,tgUrl));
-    c.innerHTML=`<div class="card-img-wrap"><img class="card-img" src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/><div class="card-img-placeholder" style="display:none;">${phSVG}</div><span class="card-num">GB-0${p.id}</span></div><div class="card-body"><div class="card-cat">Cosplay · Gaming · Yayıncı</div><div class="card-name">${p.name}</div><div class="card-desc">${p.desc}</div><div class="card-footer"><span class="price"><sub>₺</sub>${p.price}</span><a class="tg-btn" href="${tgUrl}" target="_blank" onclick="event.stopPropagation()">${tgSVG} Sipariş Ver</a></div></div>`;
+    c.innerHTML=`<div class="card-img-wrap"><img class="card-img" src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/><div class="card-img-placeholder" style="display:none;">${phSVG}</div><span class="card-num">GB-0${p.id}</span></div><div class="card-body"><div class="card-cat">Cosplay · Gaming · Yayıncı</div><div class="card-name">${p.name}</div><div class="card-desc">${p.desc}</div><div class="card-footer"><span class="price"><sub>₺</sub>${p.price}</span><a class="tg-btn" href="${tgUrl}" target="_blank" onclick="event.stopPropagation()">${tgSVG} BURAYA TIKLA — TELEGRAMDAN SİPARİŞ VER</a></div></div>`;
     g.appendChild(c);
   });
 })();
@@ -637,7 +639,7 @@ function openModal(p, tgUrl){
   document.getElementById('modalTgBtn').href = tgUrl;
   document.getElementById('cardModal').classList.add('open');
   document.body.style.overflow='hidden';
-  window.scrollTo(0,0);
+  document.getElementById('cardModal').scrollTop=0;
 }
 function closeModal(){
   document.getElementById('cardModal').classList.remove('open');
