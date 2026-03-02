@@ -31,7 +31,7 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .home-btns{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem;padding:.75rem}
 
 /* Dış wrapper — glow animasyonu için */
-.home-btn-wrap{position:relative;max-width:320px;width:100%}
+.home-btn-wrap{position:relative;max-width:320px;width:100%;display:flex;flex-direction:column}
 .home-btn-wrap::before,.home-btn-wrap::after{content:"";position:absolute;inset:-5px;border-radius:20px;z-index:0;pointer-events:none;animation:glowPulse 2s ease-in-out infinite}
 .home-btn-wrap::after{inset:-10px;animation:glowPulse 2s ease-in-out infinite .5s;opacity:.5}
 /* Sol kutu = yeşil glow */
@@ -193,6 +193,8 @@ footer a{color:#60A5FA;text-decoration:none}
 .modal-desc{color:var(--muted);font-size:.88rem;line-height:1.65;margin-bottom:1rem}
 .modal-price{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--dark)}
 .modal-price sub{font-size:.9rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:700;vertical-align:middle}
+.home-btn-label{display:block;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.8px;text-align:center;line-height:1.3;color:#fff;background:rgba(15,23,42,0.88);padding:8px 10px;border-radius:0 0 12px 12px;text-decoration:none;position:relative;z-index:2;cursor:pointer}
+.home-btn-label:hover{background:rgba(15,23,42,1)}
 </style>
 </head>
 <body>
@@ -218,19 +220,15 @@ footer a{color:#60A5FA;text-decoration:none}
       <div class="home-btns">
         <div class="home-btn-wrap home-btn-wrap-a">
           <a class="home-btn home-btn-a" onclick="showPage('pageGreenbox');return false;" href="#">
-            <span class="home-btn-title">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri</span>
-            <span class="home-btn-icon">🎮</span>
-            <span class="home-btn-sub">Greenbox, aksesuarlar ve özel studio kurulumları</span>
             <span class="btn-bottom"><span class="btn-arrow">→</span><span class="btn-tap">Keşfet</span></span>
           </a>
+          <a class="home-btn-label" onclick="showPage('pageGreenbox');return false;" href="#">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri için tıkla</a>
         </div>
         <div class="home-btn-wrap home-btn-wrap-b">
           <a class="home-btn home-btn-b" onclick="showPage('pageDesigner');return false;" href="#">
-            <span class="home-btn-title">Kendi Diorama Garajını<br>Tasarla</span>
-            <span class="home-btn-icon">🏗️</span>
-            <span class="home-btn-sub">Tabela rengi, logo ve isim ekle — sipariş ver</span>
             <span class="btn-bottom"><span class="btn-arrow">→</span><span class="btn-tap">Tasarla</span></span>
           </a>
+          <a class="home-btn-label" onclick="showPage('pageDesigner');return false;" href="#">Kendi Diorama Garajını<br>Tasarlamak için tıkla</a>
         </div>
       </div>
     </div>
