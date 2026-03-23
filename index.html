@@ -93,8 +93,8 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 .back-btn{display:inline-flex;align-items:center;gap:.5rem;margin:1.5rem 2rem;padding:.6rem 1.2rem;background:var(--white);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem;color:var(--text);transition:all .2s;text-decoration:none}
 .back-btn:hover{border-color:var(--blue);color:var(--blue)}
 
-/* ── DESIGNER ── */
-#pageDesigner{background:var(--bg)}
+
+
 .designer-wrap{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 4rem}
 .designer-layout{display:grid;grid-template-columns:1fr 370px;gap:1.75rem;align-items:start}
 .preview-area{background:#fff;border-radius:16px;border:1.5px solid var(--border);padding:1.25rem;box-shadow:0 4px 24px rgba(0,0,0,.06)}
@@ -156,7 +156,6 @@ nav{background:#fff;border-bottom:2px solid var(--blue);padding:0 2rem;height:64
 footer{background:var(--dark);color:#475569;text-align:center;padding:2rem;font-size:.8rem}
 footer a{color:#60A5FA;text-decoration:none}
 
-@media(max-width:900px){.designer-layout{grid-template-columns:1fr}}
 @media(max-width:600px){
   nav{padding:0 .75rem}
   .home-btns{flex-direction:row !important;align-items:stretch;gap:.6rem;padding:.4rem}
@@ -224,13 +223,7 @@ footer a{color:#60A5FA;text-decoration:none}
           </a>
           <a class="home-btn-label" onclick="showPage('pageGreenbox');return false;" href="#">Cosplay · Gaming · Yayıncı<br>Fenomen Studio Ürünleri için tıkla</a>
         </div>
-        <div class="home-btn-wrap home-btn-wrap-b">
-          <a class="home-btn home-btn-b" onclick="showPage('pageDesigner');return false;" href="#">
-            <span class="btn-bottom"><span class="btn-arrow">→</span><span class="btn-tap">Tasarla</span></span>
-          </a>
-          <a class="home-btn-label" onclick="showPage('pageDesigner');return false;" href="#">Kendi Diorama Garajını<br>Tasarlamak için tıkla</a>
-        </div>
-      </div>
+</div>
     </div>
   </div>
 </div>
@@ -248,86 +241,6 @@ footer a{color:#60A5FA;text-decoration:none}
   </div>
 </div>
 
-<!-- DESIGNER -->
-<div id="pageDesigner" class="page">
-  <a class="back-btn" onclick="showPage('pageHome');return false;" href="#">← Ana Sayfa</a>
-  <div class="designer-wrap">
-    <div style="margin-bottom:1.25rem">
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:var(--dark)">🏗 DİORAMA GARAJ TASARIMCI</h2>
-      <p style="color:var(--muted);font-size:.88rem;margin-top:.25rem">Garajını özelleştir, tasarımını indir ve Telegram'dan sipariş ver.</p>
-    </div>
-    <div class="designer-layout">
-      <div>
-        <div class="preview-area">
-          <div class="preview-title">📐 CANLİ ÖNİZLEME</div>
-          <canvas id="garageCanvas" width="784" height="468"></canvas>
-          <div class="preview-actions">
-            <button class="btn-dl" onclick="downloadDesign()">
-              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              Tasarımı İndir (PNG)
-            </button>
-            <button class="btn-order" onclick="orderViaTelegram()">
-              <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-              Telegram'dan Sipariş Ver
-            </button>
-          </div>
-          <p class="hint">💡 "Tasarımı İndir" ile PNG kaydet, sonra "Sipariş Ver" ile Telegram'da mesajı gönder ve indirdiğin görseli ekle.</p>
-        </div>
-      </div>
-
-      <div class="controls-panel">
-
-        <div class="ctrl-card">
-          <div class="ctrl-title"><span class="step">1</span> Tabela Rengi</div>
-          <div class="color-grid" id="colorGrid"></div>
-          <div class="custom-color-row">
-            <label>Özel:</label>
-            <input type="color" id="cPicker" value="#ffffff" oninput="setColor(this.value)"/>
-          </div>
-        </div>
-
-        <div class="ctrl-card">
-          <div class="ctrl-title"><span class="step">2</span> Sol & Sağ Logo</div>
-          <div class="slot-tabs">
-            <button class="stab active" id="stL" onclick="setSlot('left')">◀ Sol</button>
-            <button class="stab" id="stR" onclick="setSlot('right')">▶ Sağ</button>
-          </div>
-          <div class="logo-gallery" id="logoGallery"></div>
-          <div class="logo-actions">
-            <button class="btn-remove" onclick="removeLogo()">✕ Logoyu Kaldır</button>
-            <label class="upload-label" for="uploadInput">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-              PNG Yükle
-            </label>
-            <input type="file" id="uploadInput" accept="image/png,image/webp,image/svg+xml,image/jpeg" onchange="handleUpload(event)"/>
-          </div>
-        </div>
-
-        <div class="ctrl-card">
-          <div class="ctrl-title"><span class="step">3</span> Garaj Sahibi İsmi</div>
-          <div class="irow">
-            <label>İsim (örn: Atakan)</label>
-            <input type="text" id="ownerName" placeholder="Atakan" oninput="renderCanvas()"/>
-          </div>
-          <div class="irow">
-            <label>Format</label>
-            <select id="nameFmt" onchange="renderCanvas()">
-              <option value="garaj">Atakan'ın Garajı</option>
-              <option value="custom">Atakan'ın Custom Garage'ı</option>
-              <option value="workshop">Atakan'ın Workshop'u</option>
-              <option value="sadece">Atakan</option>
-            </select>
-          </div>
-          <div class="irow" style="margin-top:.2rem">
-            <label>Yazı Rengi</label>
-            <div class="tcolor-row" id="tColorRow"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
 
 <footer>
   © 2026 MakiNakarat Studio &nbsp;·&nbsp; Tüm hakları saklıdır &nbsp;·&nbsp;
@@ -339,7 +252,7 @@ const TELEGRAM="https://t.me/antalyaotocardoctor";
 const tgSVG=`<svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>`;
 const phSVG=`<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`;
 
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);if(id==='pageDesigner')setTimeout(renderCanvas,150)}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
 
 // GREENBOX
 const greenboxes=[
@@ -369,262 +282,6 @@ const greenboxes=[
   });
 })();
 
-// ═══════════════════════════════
-// DESIGNER
-// ═══════════════════════════════
-const canvas=document.getElementById('garageCanvas');
-const ctx=canvas.getContext('2d');
-const CW=784,CH=468;
-canvas.width=CW;canvas.height=CH;
-
-// Sign region (pixel-exact per spec)
-// TL(115,144) TR(660,144) BL(120,233) BR(661,232)
-// We'll use a trapezoid but simplify to rect using the spec coords
-const SX=115, SY=144, SW=660-115, SH=233-144; // 545 x 89
-// Logo boxes ~ 1/4 each side, middle rest
-const LW=Math.round(SW*0.27); // left logo width
-const RW=Math.round(SW*0.27); // right logo width
-const MW=SW-LW-RW;            // middle text width
-const L_BOX={x:SX,       y:SY, w:LW, h:SH};
-const M_BOX={x:SX+LW,    y:SY, w:MW, h:SH};
-const R_BOX={x:SX+LW+MW, y:SY, w:RW, h:SH};
-
-// State
-let signColor='#ffffff';
-let leftLogoImg=null, rightLogoImg=null;
-let leftLogoName='', rightLogoName='';
-let activeSlot='left';
-let textColor='#111111';
-
-// Garage BG
-const garageImg=new Image();
-garageImg.crossOrigin='anonymous';
-garageImg.src='assets/asset_003.jpg';
-garageImg.onload=renderCanvas;
-
-// ── LOGO DATA (built-in) ──
-const builtinLogos=[
-  {id:'spiderman_character',label:'Spiderman',file:'spiderman_character.png',src:'assets/asset_004.png'},
-  {id:'spider_logo_kirmizi',label:'Spider Logo (Kırmızı)',file:'spider_logo-kırmızı.png',src:'assets/asset_005.png'},
-  {id:'spiderman_logo_beyaz',label:'Spiderman Logo (Beyaz)',file:'Spiderman-Logo-beyaz.png',src:'assets/asset_006.png'},
-  {id:'deadpool',label:'Deadpool',file:'deadpool.png',src:'assets/asset_007.png'},
-  {id:'fast_and_furious',label:'Fast & Furious',file:'fast_and_furious.png',src:'assets/asset_008.png'},
-  {id:'gta_vice_city',label:'GTA Vice City',file:'gta_vice_city.png',src:'assets/asset_009.png'},
-  {id:'wolverine',label:'Wolverine',file:'wolverine.png',src:'assets/asset_010.png'},
-  {id:'batman',label:'Batman',file:'batman.png',src:'assets/asset_011.png'},
-  {id:'cyberpunk',label:'Cyberpunk 2077',file:'cyberpunk.png',src:'assets/asset_012.png'},
-  {id:'avengers_2',label:'Avengers 2',file:'avengers-2.png',src:'assets/asset_013.png'},
-  {id:'avengers',label:'Avengers',file:'avengers.png',src:'assets/asset_014.png'},
-  {id:'batman_2',label:'Batman 2',file:'batman-2.png',src:'assets/asset_015.png'},
-  {id:'ben10',label:'Ben10',file:'ben10.png',src:'assets/asset_016.png'},
-  {id:'bugs',label:'Bugs',file:'bugs.png',src:'assets/asset_017.png'},
-  {id:'flash',label:'Flash',file:'flash.png',src:'assets/asset_018.png'},
-  {id:'fortnite_1',label:'Fortnite 1',file:'fortnite-1.png',src:'assets/asset_019.png'},
-  {id:'fortnite_2',label:'Fortnite 2',file:'fortnite-2.png',src:'assets/asset_020.png'},
-  {id:'fortnite_3',label:'Fortnite 3',file:'fortnite-3.png',src:'assets/asset_021.png'},
-  {id:'hulk',label:'Hulk',file:'hulk.png',src:'assets/asset_022.png'},
-  {id:'insideout',label:'Insideout',file:'insideout.png',src:'assets/asset_023.png'},
-  {id:'ironman',label:'Ironman',file:'ironman.png',src:'assets/asset_024.png'},
-  {id:'joker',label:'Joker',file:'joker.png',src:'assets/asset_025.png'},
-  {id:'kpop',label:'Kpop',file:'kpop.png',src:'assets/asset_026.png'},
-  {id:'lol_1',label:'Lol 1',file:'lol-1.png',src:'assets/asset_027.png'},
-  {id:'lol_2',label:'Lol 2',file:'lol-2.png',src:'assets/asset_028.png'},
-  {id:'lol_3',label:'Lol 3',file:'lol-3.png',src:'assets/asset_029.png'},
-  {id:'lola',label:'Lola',file:'lola.png',src:'assets/asset_030.png'},
-  {id:'mcqueen',label:'Mcqueen',file:'mcqueen.png',src:'assets/asset_031.png'},
-  {id:'minecraft',label:'Minecraft',file:'minecraft.png',src:'assets/asset_032.png'},
-  {id:'mortal_2',label:'Mortal 2',file:'mortal-2.png',src:'assets/asset_033.png'},
-  {id:'mortal_3',label:'Mortal 3',file:'mortal-3.png',src:'assets/asset_034.png'},
-  {id:'mortal',label:'Mortal',file:'mortal.png',src:'assets/asset_035.png'},
-  {id:'patrick',label:'Patrick',file:'patrick.png',src:'assets/asset_036.png'},
-  {id:'pikachu',label:'Pikachu',file:'pikachu.png',src:'assets/asset_037.png'},
-  {id:'roblox',label:'Roblox',file:'roblox.png',src:'assets/asset_038.png'},
-  {id:'smurfs',label:'Smurfs',file:'smurfs.png',src:'assets/asset_039.png'},
-  {id:'spongebob',label:'Spongebob',file:'spongebob.png',src:'assets/asset_040.png'},
-  {id:'squirtle',label:'Squirtle',file:'squirtle.png',src:'assets/asset_041.png'},
-  {id:'thor',label:'Thor',file:'thor.png',src:'assets/asset_042.png'},
-  {id:'tomjerry',label:'Tomjerry',file:'tomjerry.png',src:'assets/asset_043.png'},
-];
-let customLogos=[];
-function allLogos(){return[...builtinLogos,...customLogos]}
-
-function buildGallery(){
-  const g=document.getElementById('logoGallery');g.innerHTML='';
-  allLogos().forEach(l=>{
-    const d=document.createElement('div');d.className='logo-item';d.dataset.id=l.id;
-    d.innerHTML=`<img src="${l.src}" alt="${l.label}"/><span>${l.label}</span>`;
-    d.onclick=()=>pickLogo(l.id);g.appendChild(d);
-  });
-}
-
-function pickLogo(id){
-  document.querySelectorAll('.logo-item').forEach(el=>el.classList.toggle('sel',el.dataset.id===id));
-  const logo=allLogos().find(l=>l.id===id);if(!logo)return;
-  const img=new Image();img.crossOrigin='anonymous';
-  img.onload=()=>{
-    if(activeSlot==='left'){leftLogoImg=img;leftLogoName=logo.file||logo.label+'.png';}
-    else{rightLogoImg=img;rightLogoName=logo.file||logo.label+'.png';}
-    renderCanvas();
-  };img.src=logo.src;
-}
-
-function setSlot(s){
-  activeSlot=s;
-  document.getElementById('stL').classList.toggle('active',s==='left');
-  document.getElementById('stR').classList.toggle('active',s==='right');
-}
-function removeLogo(){
-  if(activeSlot==='left'){leftLogoImg=null;leftLogoName='';}
-  else{rightLogoImg=null;rightLogoName='';}
-  renderCanvas();
-}
-function handleUpload(e){
-  const file=e.target.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=ev=>{
-    const id='custom_'+Date.now();
-    const label=file.name.replace(/\.[^.]+$/,'');
-    const fname=file.name;
-    customLogos.push({id,label,file:fname,src:ev.target.result});
-    buildGallery();pickLogo(id);
-  };reader.readAsDataURL(file);
-  e.target.value='';
-}
-
-// Colors
-const COLORS=['#ffffff','#000000','#374151','#EF4444','#F59E0B','#22C55E','#3B82F6','#8B5CF6','#EC4899','#F97316','#06B6D4','#84CC16'];
-const CNAMES=['Beyaz','Siyah','Gri','Kırmızı','Sarı','Yeşil','Mavi','Mor','Pembe','Turuncu','Cam Göbeği','Fıstık'];
-function buildColors(){
-  const g=document.getElementById('colorGrid');
-  COLORS.forEach((c,i)=>{
-    const d=document.createElement('div');d.className='cswatch'+(c===signColor?' sel':'');
-    d.style.background=c;d.title=CNAMES[i];
-    if(c==='#ffffff')d.style.border='2px solid #CBD5E1';
-    d.onclick=()=>{signColor=c;document.querySelectorAll('.cswatch').forEach(s=>s.classList.remove('sel'));d.classList.add('sel');document.getElementById('cPicker').value=c;renderCanvas();};
-    g.appendChild(d);
-  });
-}
-function setColor(c){
-  signColor=c;document.querySelectorAll('.cswatch').forEach(s=>s.classList.remove('sel'));renderCanvas();
-}
-
-// Text colors
-const TCOLORS=['#111111','#ffffff','#EF4444','#F59E0B','#3B82F6','#22C55E','#8B5CF6','#EC4899'];
-function buildTextColors(){
-  const r=document.getElementById('tColorRow');
-  TCOLORS.forEach(c=>{
-    const d=document.createElement('div');d.className='tcswatch'+(c===textColor?' sel':'');
-    d.style.background=c;if(c==='#ffffff')d.style.outline='1px solid #ccc';
-    d.onclick=()=>{textColor=c;document.querySelectorAll('.tcswatch').forEach(s=>s.classList.remove('sel'));d.classList.add('sel');renderCanvas();};
-    r.appendChild(d);
-  });
-}
-
-// Label
-function getLabel(){
-  const n=document.getElementById('ownerName').value.trim();if(!n)return'';
-  const fmt=document.getElementById('nameFmt').value;
-  const ap=isVowelEnd(n)?"'":"'";
-  if(fmt==='garaj')return`${n}${ap}ın Garajı`;
-  if(fmt==='custom')return`${n}${ap}ın Custom Garage'ı`;
-  if(fmt==='workshop')return`${n}${ap}ın Workshop'u`;
-  return n;
-}
-function isVowelEnd(s){return['a','e','ı','i','o','ö','u','ü'].includes(s.slice(-1).toLowerCase())}
-
-// ── RENDER ──
-function renderCanvas(){
-  ctx.clearRect(0,0,CW,CH);
-  // BG
-  if(garageImg.complete&&garageImg.naturalWidth>0){
-    ctx.drawImage(garageImg,0,0,CW,CH);
-  } else {
-    ctx.fillStyle='#e2e8f0';ctx.fillRect(0,0,CW,CH);
-    ctx.fillStyle='#94a3b8';ctx.textAlign='center';ctx.font='14px Arial';
-    ctx.fillText('taslak.jpg yükleniyor...',CW/2,CH/2);
-  }
-
-  // Sign frame (black border 5px)
-  const fp=5;
-  ctx.fillStyle='#111';
-  ctx.fillRect(SX-fp,SY-fp,SW+fp*2,SH+fp*2);
-
-  // Sign bg
-  ctx.fillStyle=signColor;
-  ctx.fillRect(SX,SY,SW,SH);
-
-  // Dividers
-  ctx.strokeStyle='rgba(0,0,0,0.12)';ctx.lineWidth=1;
-  ctx.beginPath();ctx.moveTo(L_BOX.x+L_BOX.w,SY);ctx.lineTo(L_BOX.x+L_BOX.w,SY+SH);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(R_BOX.x,SY);ctx.lineTo(R_BOX.x,SY+SH);ctx.stroke();
-
-  // Left logo
-  if(leftLogoImg){
-    const p=8;
-    const {dx,dy,dw,dh}=fitContain(leftLogoImg.naturalWidth,leftLogoImg.naturalHeight,L_BOX.w-p*2,L_BOX.h-p*2,L_BOX.x+p,L_BOX.y+p);
-    ctx.drawImage(leftLogoImg,dx,dy,dw,dh);
-  }
-  // Right logo
-  if(rightLogoImg){
-    const p=8;
-    const {dx,dy,dw,dh}=fitContain(rightLogoImg.naturalWidth,rightLogoImg.naturalHeight,R_BOX.w-p*2,R_BOX.h-p*2,R_BOX.x+p,R_BOX.y+p);
-    ctx.drawImage(rightLogoImg,dx,dy,dw,dh);
-  }
-
-  // Center text
-  const label=getLabel();
-  if(label){
-    const fontSize=Math.min(38, Math.floor(SH*0.45));
-    ctx.font=`bold ${fontSize}px Arial, sans-serif`;
-    ctx.fillStyle=textColor;
-    ctx.textAlign='center';ctx.textBaseline='middle';
-    ctx.shadowColor='rgba(0,0,0,0.15)';ctx.shadowBlur=3;ctx.shadowOffsetX=1;ctx.shadowOffsetY=1;
-    wrapText(ctx,label,M_BOX.x+M_BOX.w/2,M_BOX.y+M_BOX.h/2,M_BOX.w-16,fontSize*1.15);
-    ctx.shadowBlur=0;ctx.shadowOffsetX=0;ctx.shadowOffsetY=0;
-  }
-}
-
-function fitContain(iw,ih,bw,bh,bx,by){
-  const scale=Math.min(bw/iw,bh/ih);
-  const dw=iw*scale,dh=ih*scale;
-  return{dx:bx+(bw-dw)/2,dy:by+(bh-dh)/2,dw,dh};
-}
-function wrapText(ctx,text,cx,cy,maxW,lineH){
-  const words=text.split(' ');const lines=[];let line='';
-  for(const w of words){const t=line?line+' '+w:w;if(ctx.measureText(t).width>maxW&&line){lines.push(line);line=w;}else line=t;}
-  if(line)lines.push(line);
-  const totalH=(lines.length-1)*lineH;
-  lines.forEach((l,i)=>ctx.fillText(l,cx,cy-totalH/2+i*lineH));
-}
-
-function downloadDesign(){
-  renderCanvas();
-  const a=document.createElement('a');
-  a.download='diorama-garaj-tasarim.png';
-  a.href=canvas.toDataURL('image/png',1.0);
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
-}
-
-function orderViaTelegram(){
-  downloadDesign();
-  const label=getLabel()||'(isim girilmedi)';
-  const leftInfo=leftLogoName||'yok';
-  const rightInfo=rightLogoName||'yok';
-  const colorName=CNAMES[COLORS.indexOf(signColor)]||signColor;
-  const msg=encodeURIComponent(
-`Merhaba! Kendi diorama garajımı tasarladım.
-
-Tabela Yazısı: ${label}
-Tabela Rengi: ${colorName} (${signColor})
-Sol Logo: ${leftInfo}
-Sağ Logo: ${rightInfo}
-
-Tasarım görselini indirdim ve mesaja ekliyorum.
-Fiyat ve üretim süresi hakkında bilgi alabilir miyim?`);
-  setTimeout(()=>window.open(`${TELEGRAM}?text=${msg}`,'_blank'),500);
-}
-
-buildColors();buildTextColors();buildGallery();renderCanvas();
 
 function openModal(p, tgUrl){
   document.getElementById('modalImg').src = p.image;
